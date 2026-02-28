@@ -5,7 +5,7 @@ function App() {
 	return (
 		<>
 			{/* Hero Section */}
-			<div className="hero grid md:grid-cols-2 items-center pt-10 xl:gap-0 gap-6 grid-cols-1">
+			<section id="beranda" className="hero scroll-mt-24 grid md:grid-cols-2 items-center pt-10 xl:gap-0 gap-6 grid-cols-1">
 				<div className="animate__animated animate__fadeInUp animate__delay-2s">
 					<div className="flex items-center gap-3 mb-6 bg-zinc-700 p-4 rounded-2xl">
 						<img
@@ -43,17 +43,17 @@ function App() {
 						</a>
 					</div>
 				</div>
-				<img
-					src={DataImage.HeroImage}
-					alt="Hero Image"
-					className="w-[500px] md:ml-auto rounded-3xl shadow-2xl animate__animated animate__fadeInRight animate__delay-3s"
-					loading="lazy"
-				/>
-			</div>
-			{/* Akhir dari Hero Section */}
+					<img
+						src={DataImage.HeroImage}
+						alt="Hero Image"
+						className="w-[500px] md:ml-auto rounded-3xl shadow-2xl animate__animated animate__fadeInRight animate__delay-3s"
+						loading="lazy"
+					/>
+				</section>
+				{/* Akhir dari Hero Section */}
 
 			{/* Bagian Tentang */}
-			<div className="tentang mt-32 py-10">
+			<section id="tentang" className="tentang scroll-mt-24 mt-32 py-10">
 				<div className="xl:w-1/2 lg: ww-3/4 w-full mx-auto p-7 bg-zinc-700 rounded-lg" data-aos="fade-up" data-aos-duration="1000">
 					<img
 						src={DataImage.HeroImage}
@@ -129,11 +129,11 @@ function App() {
 						))}
 					</div>
 				</div>
-			</div>
-			{/* Akhir dari Bagian Tentang */}
+				</section>
+				{/* Akhir dari Bagian Tentang */}
 
 			{/* Project */}
-			<div className="project mt-32 py-10">
+			<section id="project" className="project scroll-mt-24 mt-32 py-10">
 				<h1 className="text-center text-4xl font-bold mb-2" data-aos="fade-up" data-aos-duration="1000">Project</h1>
 				<p className="text-base/loose text-center opacity-50" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">Berikut ini beberapa Project yang telah saya buat.</p>
 				<div className="proyek-box mt-14 grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
@@ -155,11 +155,11 @@ function App() {
 						</div>
 					))}
 				</div>
-			</div>
-			{/* End Project */}
+				</section>
+				{/* End Project */}
 
 			{/* Kontak */}
-			<div className="kontak mt-32 sm:p-10 p-0">
+			<section id="kontak" className="kontak scroll-mt-24 mt-32 sm:p-10 p-0">
 				<h1 className="text-4xl mb-2 font-bold text-center" data-aos="fade-up-right" data-aos-duration="1000">Kontak</h1>
 				<p className="text-base/loose text-center mb-10 opacity-50" data-aos="fade-up-right" data-aos-duration="1000" data-aos-delay="200">Mari berkenalan dengan Saya</p>
 				<form action="https://formsubmit.co/soryuken380@gmail.com" method="POST" className="bg-zinc-800 p-10 sm:w-fit w-full mx-auto rounded-lg" autoComplete="off"
@@ -182,8 +182,8 @@ function App() {
 						</div>
 					</div>
 				</form>
-			</div>
-			{/* End Kontak */}
+				</section>
+				{/* End Kontak */}
 		</>
 	);
 }
