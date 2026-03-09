@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import DataImage, { listTools, listProyek } from "./data";
+import ReactBitsSpotlight from "./components/ReactBitsSpotlight";
 
 function App() {
 	const tentangRef = useRef(null);
@@ -52,10 +53,12 @@ function App() {
 			{/* Hero Section */}
 			<section
 				id="beranda"
-				className="hero scroll-mt-24 grid md:grid-cols-2 items-center pt-10 xl:gap-0 gap-6 grid-cols-1"
+				className="hero relative isolate scroll-mt-24 grid grid-cols-1 items-center gap-6 overflow-hidden rounded-3xl pt-10 md:grid-cols-2 xl:gap-0"
 			>
+				<ReactBitsSpotlight />
+
 				<div className="animate__animated animate__fadeInUp animate__delay-1s">
-					<div className="flex items-center gap-3 mb-6 bg-zinc-700 p-4 rounded-2xl">
+					<div className="mb-6 flex items-center gap-3 rounded-2xl bg-zinc-700 p-4">
 						<img
 							src={DataImage.HeroImage}
 							alt="Hero"
@@ -74,7 +77,8 @@ function App() {
 					<p className="mb-6 text-base/loose opacity-80">
 						Saya adalah seorang pengembang yang memiliki minat khusus di bidang
 						pengembangan aplikasi web menggunakan framework seperti Laravel dan
-						AdonisJS serta tertarik pada penetration testing.
+						AdonisJS. Di samping itu saya juga tertarik pada dunia keamanan
+						jaringan khususnya penetration testing.
 					</p>
 
 					<div className="flex items-center gap-4">
@@ -96,18 +100,14 @@ function App() {
 
 				<img
 					src={DataImage.HeroImage}
-					alt="Hero"
+					alt="Hero Image"
 					className="w-[500px] md:ml-auto rounded-3xl shadow-2xl animate__animated animate__fadeInRight animate__delay-2s"
 					loading="lazy"
 				/>
 			</section>
 
 			{/* Tentang */}
-			<section
-				id="tentang"
-				ref={tentangRef}
-				className="scroll-mt-24 mt-32 py-10"
-			>
+			<section id="tentang" ref={tentangRef} className="scroll-mt-24 mt-32 py-10">
 				<div className="xl:w-1/2 lg:w-3/4 w-full mx-auto p-7 bg-zinc-700 rounded-lg">
 					<p className="mb-10 text-base/loose">
 						Halo! Saya mahasiswa Informatika yang memiliki minat di Web
@@ -126,12 +126,38 @@ function App() {
 
 							<div>
 								<h1 className="text-4xl font-semibold">
-									{experienceCount}{" "}
-									<span className="text-blue-500">+</span>
+									{experienceCount} <span className="text-blue-500">+</span>
 								</h1>
 								<p>Tahun Pengalaman</p>
 							</div>
 						</div>
+					</div>
+				</div>
+
+				{/* Tools */}
+				<div className="mt-32">
+					<h1 className="mb-4 text-4xl font-bold">
+						Tools Yang Dipakai
+					</h1>
+
+					<div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+						{listTools.map((tool) => (
+							<div
+								key={tool.id}
+								className="flex items-center gap-2 rounded-md border border-zinc-600 p-3 hover:bg-zinc-800 transition-all"
+							>
+								<img
+									src={tool.gambar}
+									alt="Tools"
+									className="w-14 bg-zinc-800 p-1"
+									loading="lazy"
+								/>
+								<div>
+									<h4 className="font-bold">{tool.nama}</h4>
+									<p className="opacity-50">{tool.ket}</p>
+								</div>
+							</div>
+						))}
 					</div>
 				</div>
 			</section>
@@ -153,9 +179,11 @@ function App() {
 								alt="Project"
 								className="rounded-md"
 							/>
+
 							<h1 className="text-2xl font-bold mt-4">
 								{proyek.nama}
 							</h1>
+
 							<p className="text-base/loose">
 								{proyek.desk}
 							</p>

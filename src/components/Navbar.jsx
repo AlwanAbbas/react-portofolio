@@ -1,52 +1,67 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
+import ReactBitsNavBadge from "./ReactBitsNavBadge";
 
 const Navbar = () => {
-  const [active, setActive] = useState(false);
+	const [active, setActive] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 150) {
-        setActive(true);
-      } else {
-        setActive(false);
-      }
-    };
+	useEffect(() => {
+		const handleScroll = () => {
+			if (window.scrollY > 150) {
+				setActive(true);
+			} else {
+				setActive(false);
+			}
+		};
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+		window.addEventListener("scroll", handleScroll);
+
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
 
 	return (
-		<div className="navbar py-7 flex justify-between items-center">
+		<div className="navbar flex items-center justify-between py-7">
 			<div className="logo">
-				<h1 className="text-3xl font-bold bg-white text-black p-1 md:bg-transparent md:text-white">
+				<h1 className="bg-white p-1 text-3xl font-bold text-black md:bg-transparent md:text-white">
 					Portofolio
 				</h1>
 			</div>
-				<ul className={`menu flex items-center sm:gap-10 gap-4 md:static fixed left-1/2 -translate-x-1/2 md:-translate-x-0 md:opacity-100 bg-white/30 backdrop-blur-md p-4 rounded-2xl rounded-bl-2xl md:bg-transparent transition-all md:trnasition-none z-40 ${active ? "top-0 opacity-100" : "top-0 opacity-0"}`}>
+
+			<div className="flex items-center gap-3">
+				<ul
+					className={`menu fixed left-1/2 z-40 flex -translate-x-1/2 items-center gap-4 rounded-2xl rounded-bl-2xl bg-white/30 p-4 backdrop-blur-md transition-all md:static md:-translate-x-0 md:gap-10 md:bg-transparent md:opacity-100 md:transition-none ${
+						active ? "top-0 opacity-100" : "top-0 opacity-0"
+					}`}
+				>
 					<li>
-						<a href="#beranda" className="sm:text-lg text-base font-medium">
+						<a href="#beranda" className="text-base font-medium sm:text-lg">
 							Beranda
 						</a>
 					</li>
+
 					<li>
-						<a href="#tentang" className="sm:text-lg text-base font-medium">
+						<a href="#tentang" className="text-base font-medium sm:text-lg">
 							Tentang
 						</a>
 					</li>
+
 					<li>
-						<a href="#project" className="sm:text-lg text-base font-medium">
+						<a href="#project" className="text-base font-medium sm:text-lg">
 							Project
 						</a>
 					</li>
+
 					<li>
-						<a href="#kontak" className="sm:text-lg text-base font-medium">
+						<a href="#kontak" className="text-base font-medium sm:text-lg">
 							Kontak
 						</a>
 					</li>
-			</ul>
+				</ul>
+
+				{/* ReactBits Animated Badge */}
+				<ReactBitsNavBadge />
+			</div>
 		</div>
 	);
 };
