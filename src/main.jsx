@@ -2,15 +2,20 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import Navbar from './components/navbar.jsx'
+import Navbar from './components/Navbar.jsx'
 import "remixicon/fonts/remixicon.css";
 import Footer from './components/Footer.jsx'
-import Preloader from './components/Preloader.jsx'
+import Preloader from './components/PreLoader.jsx'
 import 'animate.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
-AOS.init();
+AOS.init({
+  once: true,
+  offset: 80,
+  duration: 800,
+  easing: "ease-out-cubic",
+});
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
